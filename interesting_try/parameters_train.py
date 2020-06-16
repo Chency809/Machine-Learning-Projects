@@ -25,7 +25,7 @@ def cost_funciton(parameters, labels):
 
     return cost
 
-def back_propagation(parameters, labels):
+def back_propagation(x, parameters, labels):
 
     y_hat = parameters["y_hat"]
     m = parameters["m"]
@@ -48,6 +48,6 @@ def update_parameters(epochs, w, b, x, labels, lr):
         parameters["b"] -= lr * grads["db"]
 
         parameters = forward_propagation(parameters["w"], parameters["b"] , x)
-        grads = back_propagation(parameters, labels)
+        grads = back_propagation(x, parameters, labels)
 
     print(parameters["w"], parameters["b"])
